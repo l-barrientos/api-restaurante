@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users', [UserController::class, 'allUsers']);
-Route::get('/users/{id}', [UserController::class, 'getUserById']);
-Route::post('/something', [UserController::class, 'postSomething']);
+
+Route::get('/menus', [MenuController::class, 'getAll']);
+Route::get('/menu/{id}', [MenuController::class, 'getById']);
+Route::post('/menu/new', [MenuController::class, 'store']);
+Route::put('/menu/{id}', [MenuController::class, 'update']);
+Route::delete('/menu/{id}', [MenuController::class, 'destroy']);
